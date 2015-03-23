@@ -1,6 +1,6 @@
 var $f, f, format_currency, format_number, pad;
 
-pad = function(n, min_length, character) {
+pad = function(n, min_length, character, right) {
   var num;
   if (min_length == null) {
     min_length = 2;
@@ -8,12 +8,23 @@ pad = function(n, min_length, character) {
   if (character == null) {
     character = '0';
   }
+  if (right === null || right === undefined) {
+    right = true
+  }
   num = n + "";
   while (num.length < min_length) {
-    num += character;
+    if (right) {
+      num += character;
+    } else {
+      num = character + num
+    }
   }
   return num;
 };
+
+lpad = function(n, min_length, character) {
+  return pad(n, min_length, character, false)
+}
 
 f = format_number = function(n, decimals, point, seperator) {
   var digits, divisor, formatted, i, num, remainder, _i, _ref;
@@ -54,6 +65,7 @@ $f = format_currency = function(n, symbol) {
 
 module.exports = {
   pad: pad,
+  lpad: lpad,
   formatCents: f,
   formatCurrency: $f,
   n: f,

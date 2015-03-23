@@ -9,6 +9,12 @@ describe('fmt', function() {
     });
   });
 
+  describe('lpad', function() {
+    it("should pad number to left with characters", function() {
+      assert.equal("XX100", fmt.lpad(100, 5, 'X'));
+    });
+  });
+
   describe('formatCents', function() {
     it("should add a comma and decimal to number assuming its cents", function() {
       assert.equal("123.45", fmt.formatCents(12345));
