@@ -33,7 +33,7 @@ lpad = function(n, min_length, character) {
 }
 
 f = format_number = function(n, decimals, point, seperator) {
-  var digits, divisor, formatted, i, num, remainder, _i, _ref;
+  var digits, divisor, formatted, i, num, remainder, _i, _ref, negative;
 
   if (n === null || n === undefined) {
     return "";
@@ -49,6 +49,10 @@ f = format_number = function(n, decimals, point, seperator) {
     seperator = ",";
   }
   divisor = Math.pow(10, decimals);
+
+  negative = n < 0;
+  if (negative) n = Math.abs(n);
+
   num = Math.floor(n / divisor) + "";
   formatted = "";
   for (i = _i = _ref = num.length - 1; _i >= 0; i = _i += -3) {
@@ -59,7 +63,7 @@ f = format_number = function(n, decimals, point, seperator) {
     formatted = digits + formatted;
   }
   remainder = n % divisor;
-  return formatted + point + pad(remainder);
+  return (negative ? '-' : '') + formatted + point + pad(remainder);
 };
 
 $f = format_currency = function(n, symbol) {

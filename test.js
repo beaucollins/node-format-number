@@ -20,6 +20,10 @@ describe('fmt', function() {
       assert.equal("123.45", fmt.formatCents(12345));
       assert.equal("10,312,345.25", fmt.formatCents(1031234525));
     });
+
+    it("should correctly format negative numbers", function() {
+      assert.equal("-123.45", fmt.formatCents(-12345));
+    });
   });
 
   describe('formatCurrency', function() {
