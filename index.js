@@ -2,8 +2,8 @@ var $f, f, format_currency, format_number, pad;
 
 var KNOWN = {
   'USD': '$',
-	'GBP': '£',
-	'EUR': '€'
+  'GBP': '£',
+  'EUR': '€'
 }
 
 pad = function(n, min_length, character, right) {
@@ -72,12 +72,12 @@ $f = format_currency = function(n, symbol) {
     symbol = "USD";
   }
 
-	var upper = symbol.toUpperCase();
+  var upper = symbol.toUpperCase();
 
   if (KNOWN[upper]) symbol = KNOWN[upper];
 
   if (symbol.length > 1) {
-  	symbol += " "
+    symbol += " "
   }
 
 
