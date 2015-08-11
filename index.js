@@ -63,7 +63,7 @@ f = format_number = function(n, decimals, point, seperator) {
     formatted = digits + formatted;
   }
   remainder = n % divisor;
-  return (negative ? '-' : '') + formatted + point + pad(remainder);
+  return (negative ? '-' : '') + formatted + point + lpad(remainder);
 };
 
 $f = format_currency = function(n, symbol) {

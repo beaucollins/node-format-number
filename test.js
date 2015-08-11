@@ -24,6 +24,12 @@ describe('fmt', function() {
     it("should correctly format negative numbers", function() {
       assert.equal("-123.45", fmt.formatCents(-12345));
     });
+
+    it("should format cents with leading zeros", function() {
+      assert.equal("123.05", fmt.formatCents(12305));
+      assert.equal("123.50", fmt.formatCents(12350));
+    });
+
   });
 
   describe('formatCurrency', function() {
