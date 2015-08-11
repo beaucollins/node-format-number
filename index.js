@@ -4,7 +4,7 @@ var KNOWN = {
   'USD': '$',
   'GBP': '£',
   'EUR': '€'
-}
+};
 
 pad = function(n, min_length, character, right) {
   var num;
